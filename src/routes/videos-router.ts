@@ -10,7 +10,7 @@ videosRouter.get('/', (req: Request, res: Response) => {
     res.send(videos)
 })
 videosRouter.get('/:id', (req: Request, res: Response) => {
-    const video = videosRepository.getVideo(+req.params.id)
+    const video = videosRepository.getVideoById(+req.params.id)
     if (video) {
         res.send(video)
     } else {
@@ -28,7 +28,7 @@ videosRouter.post('/',
     })
 videosRouter.delete('/:id', (req: Request, res: Response) => {
     // put your code here
-    const videoIsDeleted = videosRepository.deleteVideo(+req.params.id)
+    const videoIsDeleted = videosRepository.deleteVideoById(+req.params.id)
     if (!videoIsDeleted) {
         res.send(404)
     } else {
@@ -39,7 +39,7 @@ videosRouter.put('/:id',
     titleValidatorMiddleware,
     validationResultMiddleware,
     (req: Request, res: Response) => {
-        const videoIsUpdated = videosRepository.updateVideo(+req.params.id, req.body.title)
+        const videoIsUpdated = videosRepository.updateVideoById(+req.params.id, req.body.title)
         if (!videoIsUpdated) {
             res.send(404)
         } else {

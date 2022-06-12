@@ -1,4 +1,3 @@
-import {Request, Response} from "express";
 import {body} from "express-validator";
 
 export const titleValidatorMiddleware = body('title').trim().isLength(({
