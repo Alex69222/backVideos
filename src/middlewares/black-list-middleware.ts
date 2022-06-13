@@ -1,7 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 const blackList = [
     {
-        ip: '176.14.144.0'
+        ip: '176'
     }
 ]
 export const blackListMiddleware = (req: Request, res: Response, next: NextFunction) =>{
